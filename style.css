@@ -79,3 +79,57 @@ body {
         display: none;
     }
 }
+
+.hero {
+    min-height: 100vh;
+    background: url("./images/logo3.avif")
+        bottom/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.glass-card {
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 25px;
+
+    background: rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    color: rgb(238, 236, 236);
+    text-align: center;
+}
+
+.glass-card h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.glass-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+
+.hero-buttons .btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+}
