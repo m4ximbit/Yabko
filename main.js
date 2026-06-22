@@ -9,24 +9,7 @@ const products = [
   },
 
  
-    {
-        img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600",
-        price: 959,
-        description: "Latest Apple smartphone.",
-        category: "phones",
-        name: "iPhone 15 Pro",
-        popular: true
-    },
-
-    {
-        img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600",
-        price: 1001,
-        description: "Samsung flagship smartphone.",
-        category: "phones",
-        name: "Samsung Galaxy S24",
-        popular: true
-    },
-
+   
     {
         img: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600",
         price: 190,
@@ -44,7 +27,7 @@ const products = [
     },
 
     {
-        img: "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=600",
+        img: "https://img.jabko.ua/image/cache/catalog/products/2024/08/160852/1234-1397x1397.jpeg.webp",
         price: 1299,
         description: "Powerful MacBook for professionals.",
         category: "popular",
