@@ -2,7 +2,7 @@ const products = [
 
     {
         img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600",
-        price: 999,
+        price: 959,
         description: "Latest Apple smartphone.",
         category: "phones",
         name: "iPhone 15 Pro",
@@ -11,7 +11,7 @@ const products = [
 
     {
         img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600",
-        price: 850,
+        price: 1001,
         description: "Samsung flagship smartphone.",
         category: "phones",
         name: "Samsung Galaxy S24",
@@ -20,7 +20,7 @@ const products = [
 
     {
         img: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600",
-        price: 250,
+        price: 190,
         description: "Wireless headphones with ANC.",
         category: "accessories",
         name: "AirPods Pro"
@@ -28,7 +28,7 @@ const products = [
 
     {
         img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
-        price: 60,
+        price: 35,
         description: "Fast wireless charger.",
         category: "accessories",
         name: "MagSafe Charger"
@@ -41,7 +41,23 @@ const products = [
         category: "popular",
         name: "MacBook Air M3",
         popular: true
-    }
+    },
+    {
+        img: "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=600",
+        price: 1299,
+        description: "Powerful MacBook for professionals.",
+        category: "popular",
+        name: "MacBook Air M3",
+        popular: true
+    },
+    {
+        img: "https://cdn.comfy.ua/media/catalog/product/cache/5/image/600x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_17_pro_cosmic_orange_pdp_image_position_1__ce-ww_2.jpg",
+        price: 1299,
+        description: "Powerful MacBook for professionals.",
+        category: "popular",
+        name: "MacBook Air M3",
+        popular: true
+    },
 
 ];
 
