@@ -52,19 +52,19 @@ const products = [
         popular: true
     },
     {
-        img: "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=600",
+        img: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSqUxKvxPQazQu3ZE1hkd5CsSzsR5tnumGygz-3lTGemiy5QXAyd5Cit2r-qaYkpp87Y5SxlkfW_DJsVLE8e8ofJ8NxuFQ0XmW6beEV_xY6ikt2b6g_JdSOkA",
         price: 1299,
-        description: "Powerful MacBook for professionals.",
+        description: "Powerful phone  for biginers .",
         category: "popular",
-        name: "MacBook Air M3",
+        name: "iphone 16 pro max  ",
         popular: true
     },
     {
         img: "https://cdn.comfy.ua/media/catalog/product/cache/5/image/600x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_17_pro_cosmic_orange_pdp_image_position_1__ce-ww_2.jpg",
         price: 1299,
-        description: "Powerful MacBook for professionals.",
+        description: "Powerful phone  for professionals.",
         category: "popular",
-        name: "MacBook Air M3",
+        name: "iphone 17 pro max ",
         popular: true
     },
 
@@ -77,29 +77,16 @@ const products = [
     popular: true,
   },
 
-  {
-    img: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600",
-    price: 250,
-    description: "Wireless headphones with ANC.",
-    category: "accessories",
-    name: "AirPods Pro",
-  },
+  
+
+  
 
   {
-    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
-    price: 60,
-    description: "Fast wireless charger.",
-    category: "accessories",
-    name: "MagSafe Charger",
-  },
-
-
-  {
-    img: "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=600",
-    price: 1299,
-    description: "Powerful MacBook for professionals.",
+    img: "https://www.iprem.com.ua/wp-content/uploads/2023/12/Screenshot_20231211_224940.jpg",
+    price: 150,
+    description: "Powerful headphones.",
     category: "popular",
-    name: "MacBook Air M3",
+    name: "airpods max",
     popular: true,
   },
 ];
