@@ -72,6 +72,22 @@ const products = [
     name: "airpods max",
     popular: true,
   },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAV_5tHJPae-LSNH9yN87AYv6IuTIRkhmwQ&s",
+    price: 700,
+    description: "Powerful phone.",
+    category: "popular",
+    name: "iphone 13",
+    popular: true,
+  },
+  {
+    img: "https://jey-tech.com.ua/image/cache/catalog/navushniki-tws-apple-airpods-pro-3-mfhp4-6430-68c15126101c2-1761903970-1000x1000.png",
+    price: 150,
+    description: "Powerful headphones.",
+    category: "popular",
+    name: "airpods pro 3 ",
+    popular: true,
+  },
 ];
 
 const catalog = document.getElementById("catalog");
