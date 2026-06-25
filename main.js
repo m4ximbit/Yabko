@@ -64,7 +64,7 @@ const products = [
     id: 8,
     img: "https://www.iprem.com.ua/wp-content/uploads/2023/12/Screenshot_20231211_224940.jpg",
     price: 150,
-    description: "Powerful headphones.",
+    description: "Powerful headphones.they're cool",
     category: "popular",
     name: "AirPods Max",
     popular: true,
@@ -73,7 +73,7 @@ const products = [
     id: 9,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAV_5tHJPae-LSNH9yN87AYv6IuTIRkhmwQ&s",
     price: 700,
-    description: "Powerful phone.",
+    description: "Powerful phone.for starters ",
     category: "popular",
     name: "iPhone 13",
     popular: true,
@@ -82,13 +82,70 @@ const products = [
     id: 10,
     img: "https://jey-tech.com.ua/image/cache/catalog/navushniki-tws-apple-airpods-pro-3-mfhp4-6430-68c15126101c2-1761903970-1000x1000.png",
     price: 150,
-    description: "Powerful headphones.",
+    description: "Powerful headphones. for profesinals",
     category: "popular",
     name: "AirPods Pro 3",
     popular: true,
   }
 ];
  
+
+let cart = [];
+
+  function addToCart(name, price) {
+    let item = cart.find(i => i.name === name);
+
+    if (item) {
+      item.qty++;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+
+    renderCart();
+  }
+
+  function changeQty(name, delta) {
+    let item = cart.find(i => i.name === name);
+    if (!item) return;
+
+    item.qty += delta;
+
+    if (item.qty <= 0) {
+      cart = cart.filter(i => i.name !== name);
+    }
+
+    renderCart();
+  }
+
+  function removeItem(name) {
+    cart = cart.filter(i => i.name !== name);
+    renderCart();
+  }
+
+  function renderCart() {
+    const cartDiv = document.getElementById("cart");
+    cartDiv.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(item => {
+      total += item.price * item.qty;
+
+      cartDiv.innerHTML += `
+        <div class="cart-item">
+          <span>${item.name} — ${item.price} грн</span>
+          <div>
+            <button class="qty-btn" onclick="changeQty('${item.name}', -1)">-</button>
+            ${item.qty}
+            <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
+            <button class="remove" onclick="removeItem('${item.name}')">✕</button>
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("total").innerText = "Всього: " + total + " грн";
+  }
 
 const catalog = document.getElementById("catalog");
 const searchInput = document.getElementById("searchInput");
@@ -126,7 +183,7 @@ function productCard(product) {
 
 <div class="category">${product.category}</div>
 
-<button class="buy-btn" data-id="${product.id}">
+<button class="buy-btn" data-id="${product.id}" onclick="addToCart(${product.name}, ${product.price})"> 
   Купити
 </button>
 </div>
