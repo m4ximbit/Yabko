@@ -15,7 +15,19 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
+
 <body>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+
+            <h2>Кошик</h2>
+
+            <div id="cartItems"></div>
+
+            <h3 id="totalPrice">Разом: $0</h3>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
 
@@ -38,8 +50,8 @@
                 </ul>
 
                 <div class="d-flex gap-3">
-                    <a href="#" class="nav-link">❤️</a>
-                    <a href="#" class="nav-link">🛒</a>
+                    <a href="#" class="nav-link faverit">❤️</a>
+                    <a href="#" class="nav-link cart">🛒</a>
                 </div>
 
             </div>
@@ -67,7 +79,7 @@
         <div class="review-card">
             <div class="card-header">
                 <h3>Order-99121</h3>
-               
+
             </div>
 
             <div class="stars">
@@ -81,22 +93,22 @@
             </p>
 
             <p class="review-text">
-               the quality is perfect . i love the sound of the keybords 
+                the quality is perfect . i love the sound of the keybords
             </p>
 
             <div class="author">
                 <img src="https://i.pravatar.cc/44" alt="">
                 <span>olya kyziv </span>
 
-                
+
             </div>
 
-           
+
         </div>
         <div class="review-card">
             <div class="card-header">
                 <h3>Order-99121</h3>
-               
+
             </div>
 
             <div class="stars">
@@ -110,23 +122,23 @@
             </p>
 
             <p class="review-text">
-             i love the air pods .i cant hear my son shouting
+                i love the air pods .i cant hear my son shouting
             </p>
 
             <div class="author">
                 <img src="https://i.pravatar.cc/41" alt="">
                 <span>jack paul </span>
 
-                
+
             </div>
 
-           
+
         </div>
-        
+
         <div class="review-card">
             <div class="card-header">
                 <h3>Order-99121</h3>
-               
+
             </div>
 
             <div class="stars">
@@ -140,53 +152,53 @@
             </p>
 
             <p class="review-text">
-               the quality is perfect . i love the camera i can photograph the birds 
+                the quality is perfect . i love the camera i can photograph the birds
             </p>
 
             <div class="author">
                 <img src="https://i.pravatar.cc/48" alt="">
                 <span>Wade Warren</span>
 
-                
+
             </div>
 
-           
-        </div>
-        
-    </div>
-<footer class="footer">
-    <div class="footer-container">
 
-        <div class="footer-logo">
-            <h2>yabko </h2>
-            <p>Your comfort is our priority.</p>
-        </div>
-
-        <div class="footer-contact">
-            <h3>Contact</h3>
-
-            <p>📍 123 Main Street, New York, USA</p>
-
-            <p>📞 +1 (234) 567-890</p>
-
-            <p>✉ info@luxuyyabko.com</p>
-        </div>
-
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-            <a href="#">YouTube</a>
         </div>
 
     </div>
+    <footer class="footer">
+        <div class="footer-container">
 
-    <div class="footer-bottom">
-        <p>&copy; 2026 yabko . All Rights to Reserv a phone .</p>
-    </div>
-</footer>
+            <div class="footer-logo">
+                <h2>yabko </h2>
+                <p>Your comfort is our priority.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+
+                <p>📍 123 Main Street, New York, USA</p>
+
+                <p>📞 +1 (234) 567-890</p>
+
+                <p>✉ info@luxuyyabko.com</p>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 yabko . All Rights to Reserv a phone .</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

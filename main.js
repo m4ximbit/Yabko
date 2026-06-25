@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600",
     price: 999,
     description: "Latest Apple smartphone.",
@@ -7,51 +8,51 @@ const products = [
     name: "iPhone 15 Pro",
     popular: true,
   },
-
- 
-   
-    {
-        img: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600",
-        price: 190,
-        description: "Wireless headphones with ANC.",
-        category: "accessories",
-        name: "AirPods Pro"
-    },
-
-    {
-        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
-        price: 35,
-        description: "Fast wireless charger.",
-        category: "accessories",
-        name: "MagSafe Charger"
-    },
-
-    {
-        img: "https://img.jabko.ua/image/cache/catalog/products/2024/08/160852/1234-1397x1397.jpeg.webp",
-        price: 1299,
-        description: "Powerful MacBook for professionals.",
-        category: "popular",
-        name: "MacBook Air M3",
-        popular: true
-    },
-    {
-        img: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSqUxKvxPQazQu3ZE1hkd5CsSzsR5tnumGygz-3lTGemiy5QXAyd5Cit2r-qaYkpp87Y5SxlkfW_DJsVLE8e8ofJ8NxuFQ0XmW6beEV_xY6ikt2b6g_JdSOkA",
-        price: 1299,
-        description: "Powerful phone  for biginers .",
-        category: "popular",
-        name: "iphone 16 pro max  ",
-        popular: true
-    },
-    {
-        img: "https://cdn.comfy.ua/media/catalog/product/cache/5/image/600x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_17_pro_cosmic_orange_pdp_image_position_1__ce-ww_2.jpg",
-        price: 1299,
-        description: "Powerful phone  for professionals.",
-        category: "popular",
-        name: "iphone 17 pro max ",
-        popular: true
-    },
-
   {
+    id: 2,
+    img: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600",
+    price: 190,
+    description: "Wireless headphones with ANC.",
+    category: "accessories",
+    name: "AirPods Pro",
+  },
+  {
+    id: 3,
+    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    price: 35,
+    description: "Fast wireless charger.",
+    category: "accessories",
+    name: "MagSafe Charger",
+  },
+  {
+    id: 4,
+    img: "https://img.jabko.ua/image/cache/catalog/products/2024/08/160852/1234-1397x1397.jpeg.webp",
+    price: 1299,
+    description: "Powerful MacBook for professionals.",
+    category: "popular",
+    name: "MacBook Air M3",
+    popular: true,
+  },
+  {
+    id: 5,
+    img: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSqUxKvxPQazQu3ZE1hkd5CsSzsR5tnumGygz-3lTGemiy5QXAyd5Cit2r-qaYkpp87Y5SxlkfW_DJsVLE8e8ofJ8NxuFQ0XmW6beEV_xY6ikt2b6g_JdSOkA",
+    price: 1299,
+    description: "Powerful phone for beginners.",
+    category: "popular",
+    name: "iPhone 16 Pro Max",
+    popular: true,
+  },
+  {
+    id: 6,
+    img: "https://cdn.comfy.ua/media/catalog/product/cache/5/image/600x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_17_pro_cosmic_orange_pdp_image_position_1__ce-ww_2.jpg",
+    price: 1299,
+    description: "Powerful phone for professionals.",
+    category: "popular",
+    name: "iPhone 17 Pro Max",
+    popular: true,
+  },
+  {
+    id: 7,
     img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600",
     price: 850,
     description: "Samsung flagship smartphone.",
@@ -59,36 +60,35 @@ const products = [
     name: "Samsung Galaxy S24",
     popular: true,
   },
-
-  
-
-  
-
   {
+    id: 8,
     img: "https://www.iprem.com.ua/wp-content/uploads/2023/12/Screenshot_20231211_224940.jpg",
     price: 150,
     description: "Powerful headphones.",
     category: "popular",
-    name: "airpods max",
+    name: "AirPods Max",
     popular: true,
   },
   {
+    id: 9,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAV_5tHJPae-LSNH9yN87AYv6IuTIRkhmwQ&s",
     price: 700,
     description: "Powerful phone.",
     category: "popular",
-    name: "iphone 13",
+    name: "iPhone 13",
     popular: true,
   },
   {
+    id: 10,
     img: "https://jey-tech.com.ua/image/cache/catalog/navushniki-tws-apple-airpods-pro-3-mfhp4-6430-68c15126101c2-1761903970-1000x1000.png",
     price: 150,
     description: "Powerful headphones.",
     category: "popular",
-    name: "airpods pro 3 ",
+    name: "AirPods Pro 3",
     popular: true,
-  },
+  }
 ];
+ 
 
 const catalog = document.getElementById("catalog");
 const searchInput = document.getElementById("searchInput");
@@ -126,7 +126,9 @@ function productCard(product) {
 
 <div class="category">${product.category}</div>
 
-<button class="buy-btn">Купити</button>
+<button class="buy-btn" data-id="${product.id}">
+  Купити
+</button>
 </div>
 
 </div>

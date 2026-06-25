@@ -101,3 +101,33 @@ body{
     0 0 0 3px rgba(59, 130, 246, 0.3),
     0 8px 20px rgba(59, 130, 246, 0.4);
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: white;
+  width: 500px;
+  max-width: 90%;
+  margin: 80px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#closeModal {
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
