@@ -467,7 +467,8 @@ body {
         /* position: static; */
         width: 60%;
         margin: 30px 0;
-        /* max-height: none; */
+        max-height: 50vh;
+        top: 10vh;
     }
 }
 
