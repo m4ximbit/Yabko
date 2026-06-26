@@ -62,7 +62,7 @@ const products = [
   },
   {
     id: 8,
-    img: "https://www.iprem.com.ua/wp-content/uploads/2023/12/Screenshot_20231211_224940.jpg",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbzMvRfjTCroK4oWOH0TAbuwwQIq8OOuHMlPcOHklH2g&s=10",
     price: 150,
     description: "Powerful headphones.they're cool",
     category: "popular",
@@ -126,19 +126,26 @@ let cart = [];
     const cartDiv = document.getElementById("cart");
     cartDiv.innerHTML = "";
 
+    if (cart.length === 0) {
+      cartDiv.innerHTML = `<p class="empty-cart">Кошик порожній</p>`;
+      document.getElementById("total").innerText = "Всього: 0 грн";
+      return;
+    }
+
     let total = 0;
 
     cart.forEach(item => {
       total += item.price * item.qty;
+      const safeName = item.name.replace(/'/g, "\\'");
 
       cartDiv.innerHTML += `
         <div class="cart-item">
           <span>${item.name} — ${item.price} грн</span>
-          <div>
-            <button class="qty-btn" onclick="changeQty('${item.name}', -1)">-</button>
-            ${item.qty}
-            <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
-            <button class="remove" onclick="removeItem('${item.name}')">✕</button>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="changeQty('${safeName}', -1)">-</button>
+            <span class="qty-value">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${safeName}', 1)">+</button>
+            <button class="remove" onclick="removeItem('${safeName}')">✕</button>
           </div>
         </div>
       `;
@@ -183,7 +190,7 @@ function productCard(product) {
 
 <div class="category">${product.category}</div>
 
-<button class="buy-btn" data-id="${product.id}" onclick="addToCart(${product.name}, ${product.price})"> 
+<button class="buy-btn" data-id="${product.id}" onclick="addToCart('${product.name}', ${product.price})"> 
   Купити
 </button>
 </div>
