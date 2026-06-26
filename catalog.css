@@ -467,8 +467,11 @@ body {
         /* position: static; */
         width: 60%;
         margin: 30px 0;
-        max-height: 50vh;
-        top: 10vh;
+        max-height: 50vh !important;
+        top: 10vh !important;
+    }
+    .favorites{
+        width: 60% !important;
     }
 }
 
