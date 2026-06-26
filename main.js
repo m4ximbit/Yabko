@@ -88,76 +88,145 @@ const products = [
     popular: true,
   }
 ];
-   const KOSHIK = document.querySelector(".cart");
-  const KOSHIK_btn= document.querySelector(".koshik");
-  KOSHIK_btn.onclick  = () =>{
-    KOSHIK.classList.toggle("hidden")
 
-}
+const KOSHIK = document.querySelector(".cart");
+const KOSHIK_btn = document.querySelector(".koshik");
+KOSHIK_btn.onclick = () => {
+  KOSHIK.classList.toggle("hidden");
+};
+
+const FAVORYTY = document.querySelector(".favorites");
+const FAVORYTY_btn = document.querySelector(".serce");
+FAVORYTY_btn.onclick = () => {
+  FAVORYTY.classList.toggle("hidden");
+};
+
 let cart = [];
 
-  function addToCart(name, price) {
-    let item = cart.find(i => i.name === name);
+function addToCart(name, price) {
+  let item = cart.find(i => i.name === name);
 
-    if (item) {
-      item.qty++;
-    } else {
-      cart.push({ name, price, qty: 1 });
-    }
-
-    renderCart();
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({ name, price, qty: 1 });
   }
 
-  function changeQty(name, delta) {
-    let item = cart.find(i => i.name === name);
-    if (!item) return;
+  renderCart();
+}
 
-    item.qty += delta;
+function changeQty(name, delta) {
+  let item = cart.find(i => i.name === name);
+  if (!item) return;
 
-    if (item.qty <= 0) {
-      cart = cart.filter(i => i.name !== name);
-    }
+  item.qty += delta;
 
-    renderCart();
-  }
-
-  function removeItem(name) {
+  if (item.qty <= 0) {
     cart = cart.filter(i => i.name !== name);
-    renderCart();
   }
 
-  function renderCart() {
-    const cartDiv = document.getElementById("cart");
-    cartDiv.innerHTML = "";
+  renderCart();
+}
 
-    if (cart.length === 0) {
-      cartDiv.innerHTML = `<p class="empty-cart">Кошик порожній</p>`;
-      document.getElementById("total").innerText = "Всього: 0 $";
-      return;
-    }
+function removeItem(name) {
+  cart = cart.filter(i => i.name !== name);
+  renderCart();
+}
 
-    let total = 0;
+function renderCart() {
+  const cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
 
-    cart.forEach(item => {
-      total += item.price * item.qty;
-      const safeName = item.name.replace(/'/g, "\\'");
+  if (cart.length === 0) {
+    cartDiv.innerHTML = `<p class="empty-cart">Кошик порожній</p>`;
+    document.getElementById("total").innerText = "Всього: 0 $";
+    return;
+  }
 
-      cartDiv.innerHTML += `
-        <div class="cart-item">
-          <span>${item.name} — ${item.price} 
-          $</span>
-          <div class="qty-controls">
-            <button class="qty-btn" onclick="changeQty('${safeName}', -1)">-</button>
-            <span class="qty-value">${item.qty}</span>
-            <button class="qty-btn" onclick="changeQty('${safeName}', 1)">+</button>
-            <button class="remove" onclick="removeItem('${safeName}')">✕</button>
-          </div>
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    const safeName = item.name.replace(/'/g, "\\'");
+
+    cartDiv.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name} — ${item.price} $</span>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty('${safeName}', -1)">-</button>
+          <span class="qty-value">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${safeName}', 1)">+</button>
+          <button class="remove" onclick="removeItem('${safeName}')">✕</button>
         </div>
-      `;
-    });
+      </div>
+    `;
+  });
 
-    document.getElementById("total").innerText = "Всього: " + total + " $";
+  document.getElementById("total").innerText = "Всього: " + total + " $";
+}
+
+/* ---------- Favorites ---------- */
+
+const FAVORITES_KEY = "favoriteIds";
+
+function loadFavoriteIds() {
+  try {
+    const raw = localStorage.getItem(FAVORITES_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
   }
+}
+
+function saveFavoriteIds(ids) {
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify(ids));
+}
+
+let favoriteIds = loadFavoriteIds();
+
+function isFavorite(id) {
+  return favoriteIds.includes(id);
+}
+
+function toggleFavorite(id) {
+  id = Number(id);
+
+  if (isFavorite(id)) {
+    favoriteIds = favoriteIds.filter(favId => favId !== id);
+  } else {
+    favoriteIds.push(id);
+  }
+
+  saveFavoriteIds(favoriteIds);
+  render(searchInput.value);
+  renderFavorites();
+}
+
+function renderFavorites() {
+  const favDiv = document.getElementById("favorites");
+  favDiv.innerHTML = "";
+
+  const favProducts = products.filter(p => favoriteIds.includes(p.id));
+
+  if (favProducts.length === 0) {
+    favDiv.innerHTML = `<p class="empty-cart">Список бажань порожній</p>`;
+    return;
+  }
+
+  favProducts.forEach(product => {
+    favDiv.innerHTML += `
+      <div class="favorite-item">
+        <img src="${product.img}" alt="${product.name}">
+        <div class="favorite-info">
+          <span class="favorite-name">${product.name}</span>
+          <span class="favorite-price">$${product.price}</span>
+        </div>
+        <button class="remove" onclick="toggleFavorite(${product.id})">✕</button>
+      </div>
+    `;
+  });
+}
 
 const catalog = document.getElementById("catalog");
 const searchInput = document.getElementById("searchInput");
@@ -178,10 +247,16 @@ const sections = [
 ];
 
 function productCard(product) {
+  const favActive = isFavorite(product.id);
+
   return `
 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
 
 <div class="product-card">
+
+<button class="fav-btn ${favActive ? "fav-btn-active" : ""}" data-id="${product.id}" onclick="toggleFavorite(${product.id})" aria-label="Toggle favorite">
+  ${favActive ? "❤️" : "🤍"}
+</button>
 
 <img src="${product.img}" alt="${product.name}">
 
@@ -244,3 +319,4 @@ searchInput.addEventListener("input", (e) => {
 });
 
 render();
+renderFavorites();
