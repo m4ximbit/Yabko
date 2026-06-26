@@ -88,8 +88,12 @@ const products = [
     popular: true,
   }
 ];
- 
+   const KOSHIK = document.querySelector(".cart");
+  const KOSHIK_btn= document.querySelector(".koshik");
+  KOSHIK_btn.onclick  = () =>{
+    KOSHIK.classList.toggle("hidden")
 
+}
 let cart = [];
 
   function addToCart(name, price) {
@@ -128,7 +132,7 @@ let cart = [];
 
     if (cart.length === 0) {
       cartDiv.innerHTML = `<p class="empty-cart">Кошик порожній</p>`;
-      document.getElementById("total").innerText = "Всього: 0 грн";
+      document.getElementById("total").innerText = "Всього: 0 $";
       return;
     }
 
@@ -140,7 +144,8 @@ let cart = [];
 
       cartDiv.innerHTML += `
         <div class="cart-item">
-          <span>${item.name} — ${item.price} грн</span>
+          <span>${item.name} — ${item.price} 
+          $</span>
           <div class="qty-controls">
             <button class="qty-btn" onclick="changeQty('${safeName}', -1)">-</button>
             <span class="qty-value">${item.qty}</span>
@@ -151,7 +156,7 @@ let cart = [];
       `;
     });
 
-    document.getElementById("total").innerText = "Всього: " + total + " грн";
+    document.getElementById("total").innerText = "Всього: " + total + " $";
   }
 
 const catalog = document.getElementById("catalog");
