@@ -559,3 +559,6 @@ body {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
 }
+.fav-icon{
+    height: 24px !important;
+}

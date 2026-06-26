@@ -255,9 +255,8 @@ function productCard(product) {
 <div class="product-card">
 
 <button class="fav-btn ${favActive ? "fav-btn-active" : ""}" data-id="${product.id}" onclick="toggleFavorite(${product.id})" aria-label="Toggle favorite">
-  ${favActive ? "❤️" : "🤍"}
+  ${favActive ? `<img class="fav-icon" src="./images/art.png" alt="favorited">` :  `<img class="fav-icon" src="./images/hart.png" alt="favorited">`}
 </button>
-
 <img src="${product.img}" alt="${product.name}">
 
 <div class="product-info">
